@@ -333,7 +333,7 @@ export function Settings() {
     });
 
     console.log("[Update] local version ", updateStore.version);
-    console.log("[Update] remote version ", updateStore.remoteVersion);
+    // console.log("[Update] remote version ", updateStore.remoteVersion);
   }
 
   const usage = {
@@ -696,7 +696,7 @@ export function Settings() {
             <input
               type="text"
               value={config.customModels}
-              placeholder="model1,model2,model3"
+              placeholder="model1,model2…"
               onChange={(e) =>
                 config.update(
                   (config) => (config.customModels = e.currentTarget.value),
