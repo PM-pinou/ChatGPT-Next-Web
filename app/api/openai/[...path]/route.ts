@@ -5,6 +5,7 @@ import { prettyObject } from "@/app/utils/format";
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "../../auth";
 import { requestOpenai } from "../../common";
+import { headers } from "next/headers";
 
 const ALLOWD_PATH = new Set(Object.values(OpenaiPath));
 
@@ -32,18 +33,18 @@ async function handle(
 
   const subpath = params.path.join("/");
 
-  if (!ALLOWD_PATH.has(subpath)) {
-    console.log("[OpenAI Route] forbidden path ", subpath);
-    return NextResponse.json(
-      {
-        error: true,
-        msg: "you are not allowed to request " + subpath,
-      },
-      {
-        status: 403,
-      },
-    );
-  }
+  // if (!ALLOWD_PATH.has(subpath)) {
+  //   console.log("[OpenAI Route] forbidden path ", subpath);
+  //   return NextResponse.json(
+  //     {
+  //       error: true,
+  //       msg: "you are not allowed to request " + subpath,
+  //     },
+  //     {
+  //       status: 403,
+  //     },
+  //   );
+  // }
 
   const authResult = auth(req);
   if (authResult.error) {
@@ -51,8 +52,8 @@ async function handle(
       status: 401,
     });
   }
-
   try {
+    console.log(req.headers);
     const response = await requestOpenai(req);
 
     // list models
