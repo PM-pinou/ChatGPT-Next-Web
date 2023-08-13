@@ -45,7 +45,7 @@ export const getServerSideConfig = () => {
     baseUrl: process.env.BASE_URL,
     proxyUrl: process.env.PROXY_URL,
     isVercel: !!process.env.VERCEL,
-    hideUserApiKey: !!process.env.HIDE_USER_API_KEY,
+    hideUserApiKey: true,
     disableGPT4: !!process.env.DISABLE_GPT4,
     hideBalanceQuery: !!process.env.HIDE_BALANCE_QUERY,
   };
