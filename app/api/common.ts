@@ -20,7 +20,7 @@ export async function requestOpenai(req: NextRequest) {
     baseUrl = `${PROTOCOL}://${baseUrl}`;
   }
 
-  if (baseUrl.endsWith('/')) {
+  if (baseUrl.endsWith("/")) {
     baseUrl = baseUrl.slice(0, -1);
   }
 
@@ -79,7 +79,11 @@ export async function requestOpenai(req: NextRequest) {
   }
 
   try {
-    const res = await fetch(fetchUrl, fetchOptions);
+    let fetch_url =
+      baseUrl >= "https://gptgod.online/api"
+        ? "https://gptgod.online/api/v1/chat/completions"
+        : fetchUrl;
+    const res = await fetch(fetch_url, fetchOptions);
 
     // to prevent browser prompt for credentials
     const newHeaders = new Headers(res.headers);
