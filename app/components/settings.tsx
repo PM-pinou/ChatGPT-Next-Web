@@ -696,7 +696,7 @@ export function Settings() {
             <input
               type="text"
               value={config.customModels}
-              placeholder="model1,model2…"
+              placeholder="model1,model2,model3"
               onChange={(e) =>
                 config.update(
                   (config) => (config.customModels = e.currentTarget.value),
