@@ -27,13 +27,15 @@ export interface AccessControlStore {
 let fetchState = 0; // 0 not fetch, 1 fetching, 2 done
 
 const DEFAULT_OPENAI_URL =
-  getClientConfig()?.buildMode === "export" ? DEFAULT_API_HOST : "/api/openai/";
-console.log("[API] default openai url", DEFAULT_OPENAI_URL);
+  getClientConfig()?.buildMode === "export"
+    ? DEFAULT_API_HOST
+    : "https://gptgod.online/api";
+console.log("[API] default openai url", "/api/openai");
 
 export const useAccessStore = create<AccessControlStore>()(
   persist(
     (set, get) => ({
-      token: "",
+      token: "sk-VuUM6Qsq5VvsF9YRWajxgt6WbV5FuAp2cfPkHpJKwSII1jK8",
       accessCode: "",
       needCode: true,
       hideUserApiKey: false,
