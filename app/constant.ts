@@ -63,20 +63,39 @@ Knowledge cutoff: 2021-09
 Current model: {{model}}
 Current time: {{time}}`;
 
-export const DEFAULT_MODELS = [
-  {
-    name: "gpt-4",
-    available: true,
-  },
-  {
-    name: "gpt-3.5-turbo",
-    available: true,
-  },
-  {
-    name: "gpt-3.5-turbo-16k",
-    available: true,
-  },
-] as const;
+export const DEFAULT_MODELS = !process.env.NET_GPT_4
+  ? [
+      {
+        name: "net-gpt-4",
+        available: true,
+      },
+      {
+        name: "gpt-4",
+        available: true,
+      },
+      {
+        name: "gpt-3.5-turbo",
+        available: true,
+      },
+      {
+        name: "gpt-3.5-turbo-16k",
+        available: true,
+      },
+    ]
+  : ([
+      {
+        name: "gpt-4",
+        available: true,
+      },
+      {
+        name: "gpt-3.5-turbo",
+        available: true,
+      },
+      {
+        name: "gpt-3.5-turbo-16k",
+        available: true,
+      },
+    ] as const);
 
 export const CHAT_PAGE_SIZE = 15;
 export const MAX_RENDER_MSG_COUNT = 45;

@@ -9,6 +9,8 @@ const serverConfig = getServerSideConfig();
 const DANGER_CONFIG = {
   needCode: serverConfig.needCode,
   hideUserApiKey: serverConfig.hideUserApiKey,
+  hideSelfModel: serverConfig.hideSelfModel,
+  netGPT4: serverConfig.netGPT4,
   disableGPT4: serverConfig.disableGPT4,
   hideBalanceQuery: serverConfig.hideBalanceQuery,
 };

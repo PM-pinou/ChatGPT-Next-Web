@@ -11,6 +11,7 @@ export interface AccessControlStore {
 
   needCode: boolean;
   hideUserApiKey: boolean;
+  hideSelfModel: boolean;
   hideBalanceQuery: boolean;
   disableGPT4: boolean;
 
@@ -38,6 +39,8 @@ export const useAccessStore = create<AccessControlStore>()(
       needCode: true,
       hideUserApiKey: false,
       hideBalanceQuery: false,
+      hideSelfModel: false,
+      netGPT4: false,
       disableGPT4: false,
 
       openaiUrl: DEFAULT_OPENAI_URL,
