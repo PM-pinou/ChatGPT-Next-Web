@@ -63,7 +63,7 @@ Knowledge cutoff: 2021-09
 Current model: {{model}}
 Current time: {{time}}`;
 
-export const DEFAULT_MODELS = !process.env.NET_GPT_4
+export const DEFAULT_MODELS = !!process.env.NET_GPT_4
   ? [
       {
         name: "net-gpt-4",
